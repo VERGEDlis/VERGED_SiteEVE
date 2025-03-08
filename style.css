@@ -1,0 +1,302 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300');
+@import url('https://fonts.googleapis.com/css?family=Lato:700');
+
+
+
+
+body {
+  margin: 0;
+  font-family: 'Open Sans Condensed', sans-serif;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: #000 url(GIF_EVE_shipAd_stratios.gif);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  border: 10px solid;
+  border-image-slice: 1;
+  border-image-repeat: repeat;
+  animation: body-glow 8s linear infinite; /* Увеличена длительность анимации */
+  padding: 10px;
+}
+
+@keyframes body-glow {
+  0% {
+    border-image-source: repeating-linear-gradient(to right, #002d72, #002d72 10px, #0056b3 20px, #0056b3 30px, #1e90ff 40px, #1e90ff 50px, #4682b4 60px, #4682b4 70px, #64b5f6 80px, #64b5f6 90px, #002e729f 100px);
+  }
+  25% {
+    border-image-source: repeating-linear-gradient(to bottom, #002d72, #002d72 10px, #0056b3 20px, #0056b3 30px, #1e90ff 40px, #1e90ff 50px, #4682b4 60px, #4682b4 70px, #64b5f6 80px, #64b5f6 90px, #002e7241 100px);
+  }
+  50% {
+    border-image-source: repeating-linear-gradient(to left, #002d72, #002d72 10px, #0056b3 20px, #0056b3 30px, #1e90ff 40px, #1e90ff 50px, #4682b4 60px, #4682b4 70px, #64b5f6 80px, #64b5f6 90px, #002e72bd 100px);
+  }
+  75% {
+    border-image-source: repeating-linear-gradient(to top, #002d72, #002d72 10px, #0056b3 20px, #0056b3 30px, #1e90ff 40px, #1e90ff 50px, #4682b4 60px, #4682b4 70px, #64b5f6 80px, #64b5f6 90px, #002d72 100px);
+  }
+  100% {
+    border-image-source: repeating-linear-gradient(to right, #002d72, #002d72 10px, #0056b3 20px, #0056b3 30px, #1e90ff 40px, #1e90ff 50px, #4682b4 60px, #4682b4 70px, #64b5f6 80px, #64b5f6 90px, #002e727e 100px);
+  }
+}
+
+.containerNav {
+    flex: 1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+/* Button Styles */
+.btn {
+    border: none;
+    font-family: 'Lato', sans-serif;
+    font-size: 1rem;
+    background: none;
+    cursor: pointer;
+    padding: 15px 30px;
+    display: inline-block;
+    margin: 0;
+    left: 100%;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+    outline: none;
+    position: relative;
+    bottom: 400px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(13, 140, 224, 0.459);
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smoother transitions */
+}
+
+.btn__inner { /* Wrap button content for better animation */
+    position: relative;
+    z-index: 1; /* Ensure text is on top */
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.btn--hover-animation { /* Apply animation to this class */
+    animation: btnHoverAnimation 0.3s ease forwards;
+}
+
+.btn:hover .btn__inner {
+  transform: translateY(-2px); /* Subtle lift on hover */
+}
+
+
+.btn:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 12px rgba(53, 224, 230, 0.25); /* Stronger shadow on hover */
+}
+
+.btn:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    color: rgba(134, 124, 221, 0.432);
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transform-origin: left;
+    z-index: -1; /*Behind the button*/
+    transition: opacity 0.2s ease, background-color 0.3s ease; /* Added background transition */
+
+}
+
+.btn:hover::before {
+    opacity: 1;
+    background-color: rgba(255, 255, 255, 0.2);
+    animation: highlightAnimation 0.3s ease forwards;
+}
+
+
+
+/* Keyframes for button hover animation */
+@keyframes btnHoverAnimation {
+    0% {
+        transform: scaleX(0);
+    }
+    50% {
+        transform: scaleX(1.05);
+    }
+    100% {
+        transform: scaleX(1);
+    }
+}
+
+.btn-one {
+    background-color: rgba(53, 167, 187, 0.9);
+}
+
+.btn-two {
+    background-color: #27ae60;
+}
+
+/* Triangle Styles (Unchanged) */
+#triangle,
+#triangle-two {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 100px 150px 100px;
+    border-color: transparent transparent #333 transparent;
+    bottom: 0;
+    z-index: -2;
+}
+
+#triangle {
+    left: 10%;
+}
+
+#triangle-two {
+    right: 10%;
+    transform: rotateY(180deg);
+}
+
+.triangle-image {
+    position: absolute;
+    top: -150px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60vw;
+    height: 60vh;
+    background-image: url('phone.jpg');
+    background-size: cover;
+    clip-path: polygon(0% 0%, 0% 100%, 100% 100%);
+    background-repeat: no-repeat;
+    z-index: -2;
+}
+
+.alliance-description {
+    text-align: center;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 600px;
+}
+
+/* Preloader (Unchanged) */
+/* Preloader */
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #0b92d160;
+  z-index: 1000; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  transition: opacity 0.5s ease-out;
+}
+
+#preloader.hidden {
+  opacity: 0;
+  pointer-events: none; 
+  z-index: -1; 
+}
+
+.preloader-animation {
+  border: 5px solid #b7cde3;
+  border-top-color: #2c3e50;
+  height: 50px;
+  width: 50px;
+  animation: rotation 1s linear infinite;
+  border-radius: 50%;
+}
+
+@keyframes rotation {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+.container {
+  position: relative;
+  width: 1200px; /* Настройте ширину по необходимости */
+  height: 707px;
+  right: 300px;
+  top: 50px;
+  right: 300px;
+  max-width: 95%; /* Не более 95% ширины экрана */
+  padding: 20px;
+  border-radius: 20px; /* Скругление углов */
+  box-shadow: 0 0 50px rgba(6, 104, 156, 0.555); /* Синяя тень */
+  overflow: hidden; /* Чтобы текст не выходил за рамки */
+  background: url('Visual2017_jump_drive_blobs.gif'); /* Замените на ваше изображение */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  justify-content: center;
+}
+
+.container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, #1e8fff42, #0057b365, #4682b4); /* Космический градиент */
+  z-index: -1; /* Помещаем за основным контейнером */
+  opacity: 0.8; /* Немного затемняем */
+  border-radius: 20px; /* Скругление углов */
+}
+
+.container::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  height: 60%;
+  color: #fff;
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: blur(10px); /* Размытие изображения */
+  z-index: -2; /* Помещаем за фоном */
+  border-radius: 20px; /* Скругление углов */
+  opacity: 0.3; /* Прозрачность */
+
+}
+
+
+.text {
+  text-align: center;
+  padding: 40px;
+  font-size: 1.8em;
+  line-height: 1.5; /* Изменено для лучшей читаемости */
+  font-family: 'Space Mono', monospace; /* Замените на выбранный шрифт */
+  color: #fff; /* Базовый цвет */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Тень */
+
+  /* Градиентный текст (опционально) */
+  background-image: linear-gradient(to right, #007bff, #021af3, #06adca7a, #4fb1c2da, #47b98a7a);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent; /* Сделает текст прозрачным, отображая только градиент */
+
+  z-index: 1;
+}
